@@ -10,6 +10,7 @@ export class AuthService{
         this.client
             .setEndpoint(config.appwriteURL)
             .setProject(config.appwriteProjectId)
+            console.log(config.appwriteProjectId)
         this.account = new Account(this.client)
     }
 
@@ -39,7 +40,7 @@ export class AuthService{
         try {
             return await this.account.get();
         } catch (error) {
-            throw error;
+            console.log("Appwrite serive :: getCurrentUser :: error", error);
         }
 
         return null;
